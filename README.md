@@ -14,7 +14,7 @@ npm install react-persian --save
 You can use `PersianNumber` component to convert the digits to persian form:
 
 ```jsx
-import React extends 'react';
+import React from 'react';
 import { PersianNumber } from 'react-persian';
 
 class Test extends React.Component {
@@ -32,7 +32,7 @@ class Test extends React.Component {
 
 ## PersianNumberWords
 ```jsx
-import React extends 'react';
+import React from 'react';
 import { PersianNumberWords } from 'react-persian';
 
 class Test extends React.Component {
