@@ -1,11 +1,8 @@
 {
   "name": "react-persian",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "A set of react components for Persian localisation",
   "main": "index.js",
-  "dependencies": {
-    "grunt-babel": "^5.0.3"
-  },
   "devDependencies": {
     "babel": "^5.8.23"
   },
