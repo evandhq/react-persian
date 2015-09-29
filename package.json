@@ -1,0 +1,31 @@
+{
+  "name": "react-persian",
+  "version": "1.0.0-beta",
+  "description": "A set of react components for Persian localisation",
+  "main": "index.js",
+  "dependencies": {
+    "grunt-babel": "^5.0.3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "node node_modules/babel/bin/babel src --out-dir lib --stage 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohebifar/react-persian.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "persian"
+  ],
+  "author": "Mohamad Mohebifar <mohamad@mohebifar.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohebifar/react-persian/issues"
+  },
+  "homepage": "https://github.com/mohebifar/react-persian#readme"
+}
