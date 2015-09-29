@@ -9,17 +9,36 @@ You can install this package via `npm`:
 npm install react-persian --save
 ```
 
-# Usage
+# Components
+## PersianNumber
+You can use `PersianNumber` component to convert the digits to persian form:
 
 ```jsx
 import React extends 'react';
-import { PersianNumberWords, PersianNumber } from 'react-persian';
+import { PersianNumber } from 'react-persian';
 
 class Test extends React.Component {
   render() {
     return (<div>
-      <PersianNumberWords>1372</PersianNumberWords> <!-- یک هزار و سیصد و هفتاد و دو -->
-      <PersianNumber>1372</PersianNumber> <!-- ۱۳۷۲ -->
+      سال تولد: <PersianNumber>1372</PersianNumber> <!-- ۱۳۷۲ -->
+    </div>);
+  }
+}
+```
+
+### Properties
+* **latin** (default: *true*): Enable converting Latin numbers to Persian numbers
+* **arabic** (default: *false*): Enable converting Arabic numbers to Persian numbers
+
+## PersianNumberWords
+```jsx
+import React extends 'react';
+import { PersianNumberWords } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (<div>
+      قیمت: <PersianNumberWords>5600</PersianNumberWords> <!-- پنج هزار و ششصد -->
     </div>);
   }
 }
