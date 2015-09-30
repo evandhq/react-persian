@@ -1,19 +1,23 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
 const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
 const arabicToPersianMap = ['۴', '۵', '۶'];
 const arabicNumbers = [/٤/g, /٥/g, /٦/g];
 
-class PersianNumber extends React.Component {
+class PersianNumber extends Component {
   static propTypes = {
     arabic: PropTypes.bool,
     latin: PropTypes.bool,
+    children: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.string,
+    ]),
   };
 
   static defaultProps = {
     latin: true,
-    arabic: false
+    arabic: false,
   };
 
   convert(string) {
@@ -31,28 +35,27 @@ class PersianNumber extends React.Component {
   render() {
     let { children } = this.props;
 
-    if (typeof children !== 'array') {
+    if (!children instanceof 'array') {
       children = [children];
     }
 
-    return <span>
+    return (<span>
             {
               children.map(child => {
                 if (typeof child === 'string') {
                   return this.convert(child);
-                } else {
-                  return child;
                 }
+                return child;
               })
             }
-        </span>;
+        </span>);
   }
 }
 
 export default PersianNumber;
 
 function latinToPersian(string) {
-  for (var i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
     string = string.replace(latinNumbers[i], latinToPersianMap[i]);
   }
 
@@ -60,7 +63,7 @@ function latinToPersian(string) {
 }
 
 function arabicToPersian(string) {
-  for (var i = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
     string = string.replace(arabicNumbers[i], arabicToPersianMap[i]);
   }
 
