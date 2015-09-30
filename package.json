@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/mohebifar/react-persian#readme",
   "dependencies": {
+    "moment-jalaali": "^0.3.8",
     "react": "^0.13.3"
   }
 }
