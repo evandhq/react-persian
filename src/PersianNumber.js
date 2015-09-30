@@ -35,7 +35,7 @@ class PersianNumber extends Component {
   render() {
     let { children } = this.props;
 
-    if (!children instanceof 'array') {
+    if (typeof children !== 'array') {
       children = [children];
     }
 
