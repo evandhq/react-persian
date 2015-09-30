@@ -1,6 +1,6 @@
 {
   "name": "react-persian",
-  "version": "1.0.1-beta",
+  "version": "1.0.2",
   "description": "A set of react components for Persian localisation",
   "main": "index.js",
   "devDependencies": {
