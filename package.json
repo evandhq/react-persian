@@ -2,7 +2,7 @@
   "name": "react-persian",
   "version": "1.0.2",
   "description": "A set of react components for Persian localisation",
-  "main": "index.js",
+  "main": "lib/index.js",
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
