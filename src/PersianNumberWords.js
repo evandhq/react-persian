@@ -1,13 +1,16 @@
-import React  from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default
-class PersianNumberWords extends React.Component {
+class PersianNumberWords extends Component {
+  static propTypes = {
+    children: PropTypes.string.isRequired,
+  }
+
   render() {
     if (typeof this.props.children === 'string') {
       return <span>{convert(this.props.children)}</span>;
-    } else {
-      throw '<PersianNumberWords /> Only accepts a single child of type number.'
     }
+    throw new TypeError('<PersianNumberWords /> Only accepts a single child of type number.');
   }
 }
 
@@ -17,7 +20,7 @@ const numbers = {
   1: ['', 'ده', 'بیست', 'سی', 'چهل', 'پنجاه', 'شصت', 'هفتاد', 'هشتاد', 'نود'],
   2: ['', 'یک', 'دو', 'سه', 'چهار', 'پنج', 'شش', 'هفت', 'هشت', 'نه'],
   two: ['ده', 'یازده', 'دوازده', 'سیزده', 'چهارده', 'پانزده', 'شانزده', 'هفده', 'هجده', 'نوزده'],
-  zero: 'صفر'
+  zero: 'صفر',
 };
 const delimiter = ' و ';
 
@@ -53,8 +56,7 @@ function convert(string) {
   result = result.filter(x => x.trim() != '').join(delimiter).trim();
 
   if (result != '') {
-    return result
-  } else {
-    return numbers.zero;
+    return result;
   }
+  return numbers.zero;
 }
