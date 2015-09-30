@@ -4,11 +4,16 @@
   "description": "A set of react components for Persian localisation",
   "main": "index.js",
   "devDependencies": {
-    "babel": "^5.8.23"
+    "babel": "^5.8.23",
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.5.1",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.5.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "node node_modules/babel/bin/babel src --out-dir lib --stage 0"
+    "prepublish": "node node_modules/babel/bin/babel src --out-dir lib --stage 0",
+    "lint": "eslint src; exit 0"
   },
   "repository": {
     "type": "git",
@@ -24,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/mohebifar/react-persian/issues"
   },
-  "homepage": "https://github.com/mohebifar/react-persian#readme"
+  "homepage": "https://github.com/mohebifar/react-persian#readme",
+  "dependencies": {
+    "react": "^0.13.3"
+  }
 }
