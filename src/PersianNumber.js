@@ -5,6 +5,26 @@ const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g
 const arabicToPersianMap = ['۴', '۵', '۶'];
 const arabicNumbers = [/٤/g, /٥/g, /٦/g];
 
+function latinToPersian(string) {
+  let result = string;
+
+  for (let index = 0; index < 10; index++) {
+    result = string.replace(latinNumbers[index], latinToPersianMap[index]);
+  }
+
+  return result;
+}
+
+function arabicToPersian(string) {
+  let result = string;
+
+  for (let index = 0; index < 10; index++) {
+    result = string.replace(arabicNumbers[index], arabicToPersianMap[index]);
+  }
+
+  return result;
+}
+
 class PersianNumber extends Component {
   static propTypes = {
     arabic: PropTypes.bool,
@@ -21,21 +41,23 @@ class PersianNumber extends Component {
   };
 
   convert(string) {
+    let result;
+
     if (this.props.latin) {
-      string = latinToPersian(string);
+      result = latinToPersian(string);
     }
 
     if (this.props.arabic) {
-      string = arabicToPersian(string);
+      result = arabicToPersian(result);
     }
 
-    return string;
+    return result;
   }
 
   render() {
     let { children } = this.props;
 
-    if (typeof children !== 'array') {
+    if (!(children instanceof Array)) {
       children = [children];
     }
 
@@ -44,6 +66,8 @@ class PersianNumber extends Component {
               children.map(child => {
                 if (typeof child === 'string') {
                   return this.convert(child);
+                } else if (typeof child === 'number') {
+                  return this.convert(child.toString());
                 }
                 return child;
               })
@@ -53,19 +77,3 @@ class PersianNumber extends Component {
 }
 
 export default PersianNumber;
-
-function latinToPersian(string) {
-  for (let i = 0; i < 10; i++) {
-    string = string.replace(latinNumbers[i], latinToPersianMap[i]);
-  }
-
-  return string;
-}
-
-function arabicToPersian(string) {
-  for (let i = 0; i < 10; i++) {
-    string = string.replace(arabicNumbers[i], arabicToPersianMap[i]);
-  }
-
-  return string;
-}
