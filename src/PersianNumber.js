@@ -9,7 +9,7 @@ function latinToPersian(string) {
   let result = string;
 
   for (let index = 0; index < 10; index++) {
-    result = string.replace(latinNumbers[index], latinToPersianMap[index]);
+    result = result.replace(latinNumbers[index], latinToPersianMap[index]);
   }
 
   return result;
@@ -19,7 +19,7 @@ function arabicToPersian(string) {
   let result = string;
 
   for (let index = 0; index < 10; index++) {
-    result = string.replace(arabicNumbers[index], arabicToPersianMap[index]);
+    result = result.replace(arabicNumbers[index], arabicToPersianMap[index]);
   }
 
   return result;
