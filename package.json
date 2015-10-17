@@ -1,6 +1,6 @@
 {
   "name": "react-persian",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A set of react components for Persian localisation",
   "main": "lib/index.js",
   "devDependencies": {
@@ -31,7 +31,6 @@
   },
   "homepage": "https://github.com/mohebifar/react-persian#readme",
   "dependencies": {
-    "moment-jalaali": "^0.3.8",
-    "react": "^0.13.3"
+    "react": ">=0.13.0"
   }
 }
