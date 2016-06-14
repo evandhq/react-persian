@@ -11,7 +11,7 @@ const numbers = {
 const delimiter = ' و ';
 
 function convert(input) {
-  let string = input;
+  let string = input + ''; // covert to string.
 
   string = string.split('')
     .reverse()
