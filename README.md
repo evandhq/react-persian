@@ -44,3 +44,26 @@ class Test extends React.Component {
   }
 }
 ```
+# functions
+### latinToPersian
+You can use `latinToPersian` function to convert the digits to Persian:
+```jsx
+import { latinToPersian } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (<button onClick={() => console.log(latingToPersian('44'))}>show 44 in persian</button>)
+  }
+}
+```
+### arabicToPersian
+You can use `arabicToPersian` function to convert the Arabic digits to Persian:
+```jsx
+import { arabicToPersian } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (<button onClick={() => console.log(arabicToPersian('٤٥'))}>show ٤٥ in persian</button>)
+  }
+}
+```
