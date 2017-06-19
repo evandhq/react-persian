@@ -1,30 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 
-const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
-const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
-const arabicToPersianMap = ['۴', '۵', '۶'];
-const arabicNumbers = [/٤/g, /٥/g, /٦/g];
-
-export function latinToPersian(string) {
-  let result = string;
-
-  for (let index = 0; index < 10; index++) {
-    result = result.replace(latinNumbers[index], latinToPersianMap[index]);
-  }
-
-  return result;
-}
-
-export function arabicToPersian(string) {
-  let result = string;
-
-  for (let index = 0; index < 10; index++) {
-    result = result.replace(arabicNumbers[index], arabicToPersianMap[index]);
-  }
-
-  return result;
-}
-
 class PersianNumber extends Component {
   static propTypes = {
     arabic: PropTypes.bool,
@@ -33,22 +8,35 @@ class PersianNumber extends Component {
       PropTypes.array,
       PropTypes.string,
     ]),
+    format: PropTypes.bool,
+    removeCommas: PropTypes.bool,
   };
 
   static defaultProps = {
     latin: true,
     arabic: false,
+    format: false,
+    removeCommas: false,
   };
 
   convert(string) {
     let result;
+    const { arabic, latin, format, removeCommas } = this.props;
 
-    if (this.props.latin) {
+    if (latin) {
       result = latinToPersian(string);
     }
 
-    if (this.props.arabic) {
+    if (arabic) {
       result = arabicToPersian(result);
+    }
+   
+    if (removeCommas) {
+      result = removeCommasFromString(result);
+    }
+    
+    if (format) {
+      result = formatString(result);
     }
 
     return result;
@@ -77,3 +65,50 @@ class PersianNumber extends Component {
 }
 
 export default PersianNumber;
+
+
+const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
+const arabicToPersianMap = ['۴', '۵', '۶'];
+const arabicNumbers = [/٤/g, /٥/g, /٦/g];
+
+export function latinToPersian(string) {
+  let result = string;
+
+  for (let index = 0; index < 10; index++) {
+    result = result.replace(latinNumbers[index], latinToPersianMap[index]);
+  }
+
+  return result;
+}
+
+export function arabicToPersian(string) {
+  let result = string;
+
+  for (let index = 0; index < 10; index++) {
+    result = result.replace(arabicNumbers[index], arabicToPersianMap[index]);
+  }
+
+  return result;
+}
+
+// Add comma to every 3 number
+export function formatNumber(number, dec = false) {
+  number = number.toFixed(2) + '';
+  let x = number.split('.');
+  let x1 = x[0];
+  let x2 = x.length > 1 ? '.' + x[1] : '';
+  let rgx = /(\d+)(\d{3})/;
+  while (rgx.test(x1)) {
+    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+  }
+  return x1 + (dec ? x2 : '');
+}
+export function formatString(string, dec = false) {
+  const numberString = isNumber(parseInt(string)) && string !== '' ? string : 0;
+  return formatNumber(parseInt(numberString), dec) + '';
+}
+
+export function removeCommasFromString(string) {
+  return string.split(',').join('');
+}
