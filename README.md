@@ -67,3 +67,25 @@ class Test extends React.Component {
   }
 }
 ```
+### formatString
+You can use `formatString` function to add commas every 3 characters fron right:
+```jsx
+import { formatString } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (<button onClick={() => console.log(formatString('۲۵۰۰۰۰۰۰۰'))}> is equal to ۲۵۰,۰۰۰,۰۰۰</button>)
+  }
+}
+```
+### removeCommasFromString
+You can use `formatString` function to remove any commas from string:
+```jsx
+import { removeCommasFromString } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (<button onClick={() => console.log(removeCommasFromString('۲۵۰,۰۰۰,۰۰۰'))}> is equal to ۲۵۰۰۰۰۰۰۰ (without commas)</button>)
+  }
+}
+```
