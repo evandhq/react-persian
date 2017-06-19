@@ -29,6 +29,8 @@ class Test extends React.Component {
 ### Properties
 * **latin** (default: *true*): Enable converting Latin numbers to Persian numbers
 * **arabic** (default: *false*): Enable converting Arabic numbers to Persian numbers
+* **format** (default: *false*): Enable comma separate number every 3 digit
+* **removeCommas** (default: *false*): Enable removing every comma from number/string
 
 ## PersianNumberWords
 You
