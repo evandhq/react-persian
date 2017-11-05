@@ -9,12 +9,14 @@ const PersianFileSize = ({ bytes, ...props }) => {
   }
 
   const units = [
-    'بایت',
     'کیلوبایت',
     'مگابایت',
     'گیگابایت',
     'ترابایت',
     'پتابایت',
+    'اگزابایت',
+    'زتابایت',
+    'یوتابایت',
   ];
   const base = 1024;
   let cursor = -1;
@@ -22,7 +24,7 @@ const PersianFileSize = ({ bytes, ...props }) => {
   if (Math.abs(bytes) < base) {
     return (
       <span {...props}>
-        {bytes} {units[0]}
+        {bytes} بایت
       </span>
     );
   }
