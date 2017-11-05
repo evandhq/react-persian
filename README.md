@@ -65,6 +65,10 @@ class Test extends React.Component {
   }
 }
 ```
+
+###Properties
+* **bytes** File size in bytes
+
 # functions
 ### latinToPersian
 You can use `latinToPersian` function to convert the digits to Persian:
