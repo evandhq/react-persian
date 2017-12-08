@@ -46,6 +46,29 @@ class Test extends React.Component {
   }
 }
 ```
+
+## PersianFileSize
+Used to make file size human-readable.
+
+```jsx
+import React from 'react';
+import { PersianFileSize } from 'react-persian';
+
+class Test extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>حجم فایل:</h3>
+        <PerisnFileSize bytes={123456789} /> <!-- 117.7 مگابایت -->
+      </div>
+    )
+  }
+}
+```
+
+###Properties
+* **bytes** File size in bytes
+
 # functions
 ### latinToPersian
 You can use `latinToPersian` function to convert the digits to Persian:
